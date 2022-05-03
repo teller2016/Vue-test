@@ -13,16 +13,17 @@
 
   </div>
 
-  <!-- <div v-for="(product,i) in products" :key="i">
-    <h4>{{product}}</h4>
-    <p>xx 만원</p>
+  <div v-for="(product,i) in products" :key="i">
+    <img :src="product.image" class="room-img" @click="modalState=true">
+    <h4>{{product.title}}</h4>
+    <p>{{product.price}}원</p>
     <button @click="increase(i)">허위매물신고</button>
     <span>신고수 : {{reports[i]}}</span>
-  </div> -->
-  <div>
-    <img src="./assets/room0.jpg" class="room-img">
-    <h4 @click="modalState=true">{{products[0]}}</h4>
-    <p>50 만원</p>
+  </div>
+  <!-- <div>
+    <img :src="products[0].image" class="room-img">
+    <h4 @click="modalState=true">{{products[0].title}}</h4>
+    <p>{{products[0].price}}원</p>
     <button @click="increase(0)">허위매물신고</button> <span>신고수 : {{reports[0]}}</span>
   </div>
   <div>
@@ -36,10 +37,12 @@
     <h4>{{products[2]}}</h4>
     <p>{{price2}} 만원</p>
     <button @click="increase(2)">허위매물신고</button> <span>신고수 : {{reports[2]}}</span>
-  </div>
+  </div> -->
 </template>
 
 <script>
+
+import datas from './assets/data.js';
 
 export default {
   name: 'App',
@@ -56,7 +59,7 @@ export default {
       price1 : 60,
       price2 : 70,
       h4style : "color : blue",
-      products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
+      products : datas,
     }
   },
   methods : {
