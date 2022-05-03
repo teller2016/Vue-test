@@ -124,3 +124,67 @@ export default {
     ```
 
     
+
+## 이벤트 핸들러
+
+- 버튼 전통 실행방법은 `onClick` 사용했다
+
+- Vue에서 클릭 이벤트 핸들러는 `v-on:click` 혹은 `@click`을 쓴다
+
+  ```vue
+  <button @click="report++">허위매물신고</button> <span>신고수 : {{report}}</span>
+  // "자바스크립트 코드"
+  ```
+
+  - 함수명을 집어 넣는 방법
+
+    ```vue
+    <button @click="increase">허위매물신고</button> <span>신고수 : {{report}}</span>
+    
+    ...
+    methods : {
+        increase(){
+          this.report += 1;
+        }
+      },
+    ```
+
+    
+
+- `@mouseover` : mouseover를 체크하는 이벤트 핸들러
+
+  ```vue
+  <button @mouseover="report++">
+      {{report}}
+  </button>
+  ```
+
+  
+
+## Vue에서 함수 정의
+
+```vue
+<script>
+
+export default {
+  name: 'App',
+  data(){
+    return {
+      report : 0,
+      ...
+    }
+  },
+  methods : {		//methods 안에 정의한다
+    increase(){
+      this.report += 1;
+    }
+  },
+
+  components: {
+  }
+}
+</script>
+```
+
+- `methods` 안에 정의한다
+- data의 변수에 접근하려면 `this`를 붙인다
